@@ -32,7 +32,7 @@ from django.utils.timezone import make_aware
 
 # Create your views here.
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'signin.html')
 
 def signup(request):
     if request.method == 'GET':

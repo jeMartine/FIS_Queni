@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from tasks import views
+from django.conf.urls.static import static
 
 app_name = 'tasks'
 
@@ -28,3 +29,4 @@ urlpatterns = [
     path('crear_grupo/lista_grupos/', views.lista_grupos, name='lista_grupos'),
     path('estadisticas/', views.estadisticas, name='estadisticas')
 ]
+
