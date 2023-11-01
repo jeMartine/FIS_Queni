@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Crear Gasto Compartido en {{ grupo.nombre }}</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar Gasto Compartido</button>
+    </form>
+
+    <a href="{% url 'ver_grupo' grupo.id %}">Volver al grupo</a>
+</div>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Grupos</title>
+    <style>
+        body {
+            background-color: #000; /* Fondo negro */
+            color: #fff; /* Texto blanco */
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: #800080; /* Morado */
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            background-color: #800080; /* Morado */
+            color: #fff; /* Texto blanco */
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #6b229b; /* Tonos más oscuros de morado al pasar el mouse */
+        }
+
+        .unirse-button {
+            background-color: #6b229b; /* Morado oscuro */
+            color: #fff; /* Texto blanco */
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Grupos</h1>
+
+    <ul>
+        {% for grupo in grupos %}
+            <li>
+                {{ grupo.nombre }} - {{ grupo.descripcion }}
+                <a href="{% url 'ver_grupo' grupo.id %}">Ver Grupo</a>
+                <!-- Agrega un botón "Unirse" con un enlace a la vista de unirse_grupo -->
+                <a class="unirse-button" href="{% url 'unirse_grupo' grupo.id %}">Unirse</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'crear_grupo' %}">Crear Grupo</a>
+</body>
+</html>
+{% endblock %}

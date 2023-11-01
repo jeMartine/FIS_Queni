@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div style="background-color: #fff; color: #000; padding: 20px; border-radius: 10px;">
+        <h1 style="color: #800080;">{{ grupo.nombre }}</h1>
+
+        <h2>Miembros:</h2>
+        <table style="color: #000; border-collapse: collapse; width: 100%;">
+            <tr>
+                <th style="border: 1px solid #000; padding: 8px;">Nombre</th>
+            </tr>
+            {% for miembro in miembros %}
+                <tr>
+                    <td style="border: 1px solid #000; padding: 8px;">{{ miembro.username }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <h2>Estadísticas de Gastos Compartidos:</h2>
+        <table style="color: #000; border-collapse: collapse; width: 100%;">
+            <tr>
+                <th style="border: 1px solid #000; padding: 8px;">Descripción</th>
+                <th style="border: 1px solid #000; padding: 8px;">Monto</th>
+                <th style="border: 1px solid #000; padding: 8px;">Fecha</th>
+            </tr>
+            {% for gasto in gastos %}
+                <tr>
+                    <td style="border: 1px solid #000; padding: 8px;">{{ gasto.descripcion }}</td>
+                    <td style="border: 1px solid #000; padding: 8px;">{{ gasto.monto }}</td>
+                    <td style="border: 1px solid #000; padding: 8px;">{{ gasto.fecha }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <h2>Aportes por Miembro:</h2>
+        <table style="color: #000; border-collapse: collapse; width: 100%;">
+            <tr>
+                <th style="border: 1px solid #000; padding: 8px;">Nombre</th>
+                <th style="border: 1px solid #000; padding: 8px;">Aporte</th>
+            </tr>
+            {% for miembro, aporte in aportes.items %}
+                <tr>
+                    <td style="border: 1px solid #000; padding: 8px;">{{ miembro }}</td>
+                    <td style="border: 1px solid #000; padding: 8px;">{{ aporte|default:"No se ha calculado el aporte" }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <a href="{% url 'lista_grupos' %}" style="background-color: #800080; color: #fff; text-decoration: none; padding: 10px 15px; border-radius: 5px; margin-top: 10px;">Volver a la lista de grupos</a>
+        <a href="{% url 'crear_gasto_compartido' grupo.id %}" style="background-color: #800080; color: #fff; text-decoration: none; padding: 10px 15px; border-radius: 5px; margin-top: 10px;">Crear Gasto Compartido</a>
+    </div>
+{% endblock %}
