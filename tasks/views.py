@@ -65,20 +65,21 @@ def signout(request):
 
 
 def signin(request):
-    if request.method == 'POST':
-        email = request.POST['email']
-        password = request.POST['password']
-        user = authenticate(request, username=email, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('verGastos')
-        else:
-            return render(request, 'signin.html', {
-                'form': AuthenticationForm,
-                'error': 'El correo electrónico o la contraseña son incorrectos'
-            })
-    return render(request, 'signin.html', {'form': AuthenticationForm})
-          
+     if request.method=='GET':
+          return render(request, 'signin.html', {
+               'form': AuthenticationForm
+          })
+     else:
+          user = authenticate(request, username=request.POST['username'], password=request.POST
+                       ['password'])
+          if user is None:
+            return render(request, 'signin.html',{
+               'form': AuthenticationForm,
+               'error': 'El usuario o la contraseña son incorrectos'
+          })   
+          else:
+              login(request, user)
+              return redirect('verGastos')
         
 @login_required 
 def verGastos(request):
