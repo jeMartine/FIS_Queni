@@ -120,6 +120,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'tasks/static'),)
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'tasks/static')
+
 OPENAI_API_KEY = "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"
 
 LOGIN_URL = '/signin'
