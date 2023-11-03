@@ -1,2 +1,3 @@
-env
+env/
+Queni/__pycache__/
 .vscode
