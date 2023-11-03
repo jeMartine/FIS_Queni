@@ -1,2 +1,4 @@
-env
+env/
+Queni/__pycache__/
 .vscode
+tasks/__pycache__/
