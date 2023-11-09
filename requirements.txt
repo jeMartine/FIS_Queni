@@ -3,4 +3,4 @@ matplotlib==3.5.3
 reportlab==3.6.13
 selenium==4.11.2
 xhtml2pdf==0.2.11
-gunicorn==14.17.0
+gunicorn==21.2.0
