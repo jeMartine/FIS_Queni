@@ -6,7 +6,7 @@ app_name = 'tasks'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name = 'home'),
+    path('',views.signup, name = 'signup'),
     path('signup/',views.signup, name = 'signup'),
     path('verGastos/',views.verGastos, name = 'verGastos'),
     path('verGastos/completados/',views.verGastosCompletados, name = 'verGastosCompletados'),
