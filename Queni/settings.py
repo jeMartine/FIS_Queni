@@ -141,3 +141,5 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'tucorreo@gmail.com'  # Tu dirección de correo electrónico de Gmail
 EMAIL_HOST_PASSWORD = 'tucontraseña'  # La contraseña de tu cuenta de Gmail o una contraseña de aplicación si la tienes
 
+STATICFILES_DIRS = [BASE_DIR / "static"] # new
+STATIC_ROOT = BASE_DIR / "staticfiles" # new
