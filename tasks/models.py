@@ -40,6 +40,9 @@ class CrearGasto(models.Model):
     ]
     Frecuencia = models.CharField(max_length=50, choices=FRECUENCIA_CHOICES, default='unico')
 
+     # Nuevo campo para la fecha de vencimiento
+    FechaVencimiento = models.DateField(null=True, blank=True)
+
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):

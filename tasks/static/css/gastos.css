@@ -7,20 +7,65 @@ body {
     
 }
 
-.container {
 
-    text-align: center;
-    background-color: #FFFFFF;
+.container {
     border-radius: 5%;
     border: 1px solid #9DA3B1; 
-    display: flex;
+    text-align: center;
+    background-color: #FFFFFF;
+    position: relative;
 }
 
-p{
-    background-color: #FF2FFF;
+.gastos-table{
+    margin: auto;
+    width: 100%;
+    border-collapse: collapse;
+    position: relative;
 
 }
 
-form {
+
+.headTable {
+    width: 100%;
+    width: 100%;
     display: flex;
+    align-items: center;
+    border-bottom: 1px solid #b6b1b1; /* Línea de borde inferior */
+}
+
+
+.headTable img {
+    width: 50px; /* Ajusta el tamaño de la imagen según tus necesidades */
+    height: auto; /* Mantiene la proporción original de la imagen */
+    margin-right: 1px; /* Añade espacio entre la imagen y el texto */
+}
+
+.headTable p {
+    margin: 0; /* Elimina el margen predeterminado del párrafo */
+    
+}
+
+.headTable a {
+    background-color: #7957D5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 80%;
+}
+
+
+.div_tabla{
+    border: 1px solid #9DA3B1; 
+    width: 100%; 
+    margin-bottom: 2%;
+}
+
+table.gastos-table th, table.gastos-table td {
+    border-bottom: 1px solid #b6b1b1; /* Línea de borde inferior */
+    padding: 2px; /* Ajusta el espacio alrededor del contenido */
 }
