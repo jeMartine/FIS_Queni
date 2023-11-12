@@ -7,7 +7,6 @@ body {
     
 }
 
-
 .container {
     border-radius: 5%;
     border: 1px solid #9DA3B1; 
@@ -16,16 +15,13 @@ body {
     position: relative;
 }
 
-
 .headCRgastos {
     width: 100%;
     width: 100%;
     display: flex;
     align-items: center;
     border-bottom: 1px solid #b6b1b1; /* Línea de borde inferior */
- 
 }
-
 
 .headCRgastos img {
     width: 20px; /* Ajusta el tamaño de la imagen según tus necesidades */
@@ -34,8 +30,7 @@ body {
 }
 
 .headCRgastos p {
-    margin: 0; /* Elimina el margen predeterminado del párrafo */
-    
+    margin: 0; /* Elimina el margen predeterminado del párrafo */  
 }
 
  .div_conse {
@@ -44,27 +39,27 @@ body {
 } 
 
 
-.two-column-form {
+.form_gasto {
     display: flex;
     flex-wrap: wrap;
 }
 
-.two-column-form label {
+.form_gasto label {
     flex: 1;
     padding: 10px;
     box-sizing: border-box;
 }
 
-.two-column-form input,
-.two-column-form select,
-.two-column-form textarea {
+.form_gasto input,
+.form_gasto select,
+.form_gasto textarea {
     flex: 2;
     padding: 10px;
     box-sizing: border-box;
     margin-bottom: 10px;
 }
 
-.two-column-form button {
+.form_gasto button {
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
@@ -75,6 +70,6 @@ body {
     cursor: pointer;
 }
 
-.two-column-form button:hover {
+.form_gasto button:hover {
     background-color: #45a049;
 }

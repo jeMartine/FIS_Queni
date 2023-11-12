@@ -23,8 +23,11 @@ class CrearGastoForm(forms.ModelForm):
 
     class Meta:
         model = CrearGasto
-        fields = ['Nombre', 'TipoGasto', 'Descripcion', 'Valor', 'Importancia', 'Frecuencia']  # Agrega 'Importancia' al formulario
-        
+        fields = ['Nombre', 'TipoGasto', 'Descripcion', 'Valor', 'Importancia', 'Frecuencia', 'FechaVencimiento']
+        widgets = {
+            'FechaVencimiento': forms.DateInput(attrs={'type': 'date'}),  # Utiliza el widget DateInput
+        }
+
 class IngresarIngresosForm(forms.ModelForm):
     class Meta:
         model = IngresarIngresos

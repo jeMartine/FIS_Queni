@@ -26,7 +26,7 @@
 
         <div class="form-container">
             {{ error }}
-            <form action="{% url 'crearGastos' %}" method="POST" class="two-column-form">
+            <form action="{% url 'crearGastos' %}" method="POST" class="form_gasto">
                 {% csrf_token %}
                 <label for="id_frecuencia">ID del gasto:</label>
                 <span id="id_gasto">Generando ID...</span>
