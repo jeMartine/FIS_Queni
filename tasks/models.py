@@ -21,7 +21,7 @@ class CrearGasto(models.Model):
         ('otros', 'Otros'),
     ]
     TipoGasto = models.CharField(max_length=50, choices=TIPO_GASTO_CHOICES)
-    Descripcion = models.TextField(blank=True)
+    Descripcion = models.CharField(max_length=50)
     Valor = models.BigIntegerField(default=0, blank=True, null=True)
     datecreated = models.DateTimeField(auto_now_add=True)
     datecompleted = models.DateTimeField(null=True)
@@ -47,6 +47,10 @@ class CrearGasto(models.Model):
 
     def __str__(self):
         return self.Nombre + ' creado por: ' + self.user.username
+    
+    
+    
+
 
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField()

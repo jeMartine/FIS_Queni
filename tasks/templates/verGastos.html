@@ -7,7 +7,6 @@
         
         <img src='{% static "images/mano_dolar_azul.png"%}'>
         <p>Gastos del hogar</p>
-        <button class="Btn_crear_gasto">Crear</button>
         <a class="Btn_crear_gasto" href="/verGastos/crearGastos/">Crear</a>
     
     </div>
@@ -22,6 +21,7 @@
                 <th>Fecha</th>
                 <th>Vencimiento</th>
                 <th>valor</th>
+                <th>Opciones</th>
             </tr>
             {% for CrearGasto in Gastos %}
            
@@ -33,6 +33,9 @@
                     <td><p class="gasto-description">{{ CrearGasto.datecreated }}</p></td>
                     <td><p class="date-completed">Fecha: {{ CrearGasto.FechaVencimiento}}</p></td>
                     <td><p class="valor_gasto">{{ CrearGasto.Valor }}</p></td>
+                    <td><a  margin: 0  href="{% url 'gastoDetail' CrearGasto.id %}" >
+                        <img class = "menu_gasto" width="30px" src='{% static "images/menu_puntos_gris.png"%}'>
+                    </a></td>
                 </tr>
             
             {% endfor %}

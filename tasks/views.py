@@ -37,7 +37,6 @@ from django.core.mail import send_mail
 
 
 
-
 # Create your views here.
 def home(request):
     return render(request, 'signup.html')
@@ -93,12 +92,14 @@ def verGastosCompletados(request):
     ('-datecompleted') 
     
     return render(request, 'verGastos.html',{'Gastos' : gastos})
+
 def crearGastos(request):
     if request.method == 'GET':
-        # Genera un número aleatorio único
         id_aleatorio = random.randint(10000, 99999)
         form = CrearGastoForm(initial={'id': id_aleatorio})
-        return render(request, 'crearGastos.html', {'form': form})
+
+        fecha_actual = timezone.now()
+        return render(request, 'crearGastos.html', {'form': form, 'fecha_actual': fecha_actual})
     else:
         form = CrearGastoForm(request.POST)
         if form.is_valid():

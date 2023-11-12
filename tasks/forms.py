@@ -20,7 +20,6 @@ class CrearGastoForm(forms.ModelForm):
     ]
 
     Frecuencia = forms.ChoiceField(choices=FRECUENCIA_CHOICES, required=True, label='Frecuencia')
-
     class Meta:
         model = CrearGasto
         fields = ['Nombre', 'TipoGasto', 'Descripcion', 'Valor', 'Importancia', 'Frecuencia', 'FechaVencimiento']

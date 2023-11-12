@@ -3,6 +3,7 @@
 {% block content %}
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,35 +11,81 @@
     <title>Queni - Crear Gastos</title>
 
 </head>
+
 <body>
     <div class="container">
-        
         <div class="headCRgastos">
             <img src='{% static "images/cofre_morado.png"%}'>
             <p>Crear gasto del hogar</p>
-                <div class = "div_conse">
-                    <label for="textoNoEditable">Consecutivo</label>
-                    <br>
-                    <input type="text" id="textoNoEditable" value="G312" readonly>
-                </div>
+            <div class="div_conse">
+                <label for="textoNoEditable">Consecutivo</label>
+                <br>
+                <span id="id_gasto" class="conseq"  margin-left: 10% border: 1px solid #9DA3B1 ></span>
+            </div>
         </div>
-
-
         <div class="form-container">
             {{ error }}
             <form action="{% url 'crearGastos' %}" method="POST" class="form_gasto">
                 {% csrf_token %}
-                <label for="id_frecuencia">ID del gasto:</label>
-                <span id="id_gasto">Generando ID...</span>
                 {{ form.id }}
-                {{ form.as_p }}
-                <button type="submit">Guardar</button>
+                {% csrf_token %}
+                <table class="tabla_datos">
+                    <tr>
+                        <td>
+                            <p class = "p_creador">Creador</p>
+                        </td>
+                        <td>
+                            <p class = "p_fecha">Fecha</p>
+                        </td>
+                        <td>{{ form.FechaVencimiento.label_tag }}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {% if user.is_authenticated %}
+                            <p class = "usr_p">{{ user.username }}.</p>
+                            {% else %}
+                            <p class = "usr_p">No estás autenticado.</p>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if fecha_actual %}
+                            <p class = "usr_p">{{ fecha_actual|date:"d / m / Y" }}</p>
+                            {% endif %}
+                        </td>
+                        <td>{{ form.FechaVencimiento }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form.Nombre.label_tag }}</td>
+                        <td>{{ form.Descripcion.label_tag }}</td>
+                        <td>{{ form.TipoGasto.label_tag }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form.Nombre }}</td>
+                        <td>{{ form.Descripcion }}</td>
+                        <td>{{ form.TipoGasto }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form.Importancia.label_tag }}</td>
+                        <td>{{ form.Valor.label_tag }}</td>
+                        <td>{{ form.Frecuencia.label_tag }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form.Importancia }}</td>
+                        <td>{{ form.Valor }}</td>
+                        <td>{{ form.Frecuencia }}</td>
+                    </tr>
+
+                </table>
+                <div class = "div_botones">
+                    <button class = "btn_guardar" type="submit">Guardar</button>
+                    <button class = "btn_cancelar" type="button" id="cancelar">Cancelar</button>
+                </div>
             </form>
         </div>
     </div>
-
+   
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             // Función para generar un ID único (puedes personalizar esto según tus necesidades)
             function generateUniqueID() {
                 return Math.floor(Math.random() * 100000);
@@ -48,7 +95,22 @@
             const idGastoElement = document.getElementById("id_gasto");
             idGastoElement.textContent = generateUniqueID();
         });
+
+
+
+        document.getElementById('cancelar').addEventListener('click', function () {
+            document.getElementById('id_Nombre').value = '';
+            document.getElementById('id_TipoGasto').selectedIndex = 0;
+            document.getElementById('id_Descripcion').value = '';
+            document.getElementById('id_Valor').value = '';
+            document.getElementById('id_Importancia').selectedIndex = 0;
+            document.getElementById('id_Frecuencia').selectedIndex = 0;
+            document.getElementById('id_FechaVencimiento').value = '';
+        });
+
+
     </script>
 </body>
+
 </html>
 {% endblock %}

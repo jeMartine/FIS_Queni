@@ -38,38 +38,81 @@ body {
     float: right;
 } 
 
-
-.form_gasto {
-    display: flex;
-    flex-wrap: wrap;
+.tabla_datos{
+    width: 100%;
+    padding: 10px;
 }
 
-.form_gasto label {
-    flex: 1;
-    padding: 10px;
+.form-descripcion {
+    height: 100px; /* Ajusta la altura según tus necesidades */
+}
+
+.conseq{
+    margin-left: 10%;
+    border: 1px solid #9DA3B1; 
+}
+
+form{
+    
+}
+
+.form_gasto label,
+.p_creador,
+.p_fecha{
+    float: left;
+    margin: 0;
+}
+
+.usr_p{
+    border: 1px solid #9DA3B1; 
+    flex: 2;
     box-sizing: border-box;
+    margin-bottom: 2px;
+    width: 90%;
+    height: 35px;
+    margin-left: 5%;
 }
 
 .form_gasto input,
 .form_gasto select,
 .form_gasto textarea {
     flex: 2;
-    padding: 10px;
     box-sizing: border-box;
-    margin-bottom: 10px;
+    margin-bottom: 2px;
+    width: 90%;
+    height: 35px;
+    border: 1px solid #9DA3B1;
 }
 
-.form_gasto button {
-    width: 100%;
+.btn_guardar {
+    float: left;
     padding: 10px;
     box-sizing: border-box;
-    background-color: #4caf50;
+    background-color: #7957D5;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    margin-left: 5px;
 }
 
-.form_gasto button:hover {
-    background-color: #45a049;
+.btn_guardar:hover {
+    background-color: #59419c;
+} 
+
+.btn_cancelar {
+    float: left;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border: 1px solid #9DA3B1; 
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 5px;
 }
+
+.btn_cancelar:hover {
+    background-color: #c4c4c4;
+} 
+
+
