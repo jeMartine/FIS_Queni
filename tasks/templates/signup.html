@@ -1,4 +1,4 @@
-{% load static %}
+<!-- {% load static %} -->
 {% block content %}
 <!DOCTYPE html>
 <html lang="es">
@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup</title>
-    <link rel="stylesheet" type="text/css" href='{% static "css/signin.css" %}'>
+    <!-- <link rel="stylesheet" type="text/css" href='{% static "css/signin.css" %}'> -->
 
 </head>
 <body>
@@ -15,14 +15,13 @@
             {{error}}
             <form action="/signup/" method="POST">
                 {% csrf_token %}
-                <!-- ['username','nombre', 'apellido' , 'email', 'password1', 'password2'] -->
                 <table class = "tbl_form">
                     <tr>
                         <td>
-                            <img src='{% static "images/logoMorado.png"%}'>
+                            <!-- <img src='{% static "images/logoMorado.png"%}'> -->
                         </td>
                         <td>
-                            <img src='{% static "images/nombreMorado.png"%}'>
+                          <!-- <img src='{% static "images/nombreMorado.png"%}'> -->
                         </td>
                     </tr>
                     <tr>

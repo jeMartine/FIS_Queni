@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Establece la altura mínima del cuerpo al 100% de la altura de la ventana */
+}
+
+nav {
+    background-color: #2E323A;
+    color: #9DA3B1;
+    padding: 10px 0;
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    z-index: 1;
+}
+
+.logo{
+    width: 100%;
+}
+
+.div_logo{
+    background-color: #17191E;
+    z-index: 2; /* Asegura que el footer esté encima de otros elementos */
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin: 0;
+}
+
+.opcion {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    display: block;
+}
+
+.opcion_logOut{
+    text-decoration: none;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    display: block;
+}
+
+.opcion:hover {
+    background-color: #fff;
+    color: #333;
+
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+    margin-left: 200px;
+    z-index: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFFFFF;
+    text-align: center;
+    color: #4C1D95;
+    border: 1px solid #b6b1b1;
+}
+
+footer {
+    background-color: #F8F8F8;
+    text-align: center;
+    color: #4B4B4B;
+    margin-top: auto; /* Empuja el pie de página hacia la parte inferior de la pantalla */
+    border: 1px solid #b6b1b1; /* Línea de borde inferior */
+    z-index: 2; /* Asegura que el footer esté encima de otros elementos */
+
+}
+
+.logo_footer{
+    width: 40px; /* Ajusta el tamaño de la imagen según tus necesidades */
+    height: auto; /* Mantiene la proporción original de la imagen */
+    margin-right: 1px; /* Añade espacio entre la imagen y el texto */
+    float: left;
+}
+
+.texto_footer{
+    width: 120px; /* Ajusta el tamaño de la imagen según tus necesidades */
+    height: auto; /* Mantiene la proporción original de la imagen */
+    margin-right: 1px; /* Añade espacio entre la imagen y el texto */
+    float: left;
+}
+
+.logOut_img{
+    width: 40px; /* Ajusta el tamaño de la imagen según tus necesidades */
+    height: auto; /* Mantiene la proporción original de la imagen */
+    margin-right: 1px; /* Añade espacio entre la imagen y el texto */
+}
+
+.p_usuario{
+    color: #4C1D95;
+    background-color: #F5F3FF;
+    text-align: center;
+    border-radius: 5px; /* Añade esquinas redondeadas */
+    margin-left: 50%;
+}
+
+.p_slogan{
+    margin-top: 10px;
+
+}
