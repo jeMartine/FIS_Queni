@@ -15,7 +15,6 @@
         <table class="gastos-table">
             <tr>
                 <th>#</th>
-                <th>Estado</th>
                 <th>Tipo</th>
                 <th>Descripción</th>
                 <th>Fecha</th>
@@ -27,7 +26,6 @@
            
                 <tr>
                     <td>{{ forloop.counter }}</td>
-                    <td><p>pagado</p></td>
                     <td><p class="tipo_gasto">{{ CrearGasto.TipoGasto }}</p></td>
                     <td><p class="gasto-title">{{ CrearGasto.Nombre }}</p></td>
                     <td><p class="gasto-description">{{ CrearGasto.datecreated }}</p></td>
