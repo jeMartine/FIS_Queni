@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
     <div>
         <h1>{{ grupo.nombre }}</h1>
@@ -45,7 +46,8 @@
                 </tr>
             {% endfor %}
         </table>
-
+        <br>
+        <br>
         <a href="{% url 'lista_grupos' %}" style="background-color: #800080; color: #fff; text-decoration: none; padding: 10px 15px; border-radius: 5px; margin-top: 10px;">Volver a la lista de grupos</a>
         <a href="{% url 'crear_gasto_compartido' grupo.id %}" style="background-color: #800080; color: #fff; text-decoration: none; padding: 10px 15px; border-radius: 5px; margin-top: 10px;">Crear Gasto Compartido</a>
     </div>
