@@ -10,15 +10,15 @@
 </head>
 
 <body>
-
+    {% if user.is_authenticated %}
     <header>
-        <p class = "p_usuario">{{ user.username }}</p>
+        <p class = "p_usuario">{{ user.first_name }}</p>
         <a class="opcion_logOut" href="/logout">
             <img class="logOut_img" src='{% static "images/logOut.png"%}'>
         </a>
 
     </header>
-
+    
     <nav>
         <ul>
             <li>
@@ -28,7 +28,7 @@
                     </a>
                 </div>
             </li>
-            {% if user.is_authenticated %}
+           
             <li>
                 <a class="opcion" href="/ingresarIngresos">Ingresar Ingresos</a>
             </li>
@@ -54,18 +54,9 @@
             <li>
                 <a class="opcion" href="{% url 'lista_grupos' %}">Ver Grupos</a>
             </li>
-
-            {% else %}
-            <li>
-                <a class="opcion" href="/signup">Signup</a>
-            </li>
-            <li>
-                <a class="opcion" href="/signin">Login</a>
-            </li>
-            {% endif %}
         </ul>
     </nav>
-
+    {% endif %}
     <main>
         {% block content %}
         {% endblock %}

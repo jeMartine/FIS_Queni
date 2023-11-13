@@ -1,9 +1,12 @@
 from django.db import models
 from django import forms
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.contrib.auth.models import AbstractUser, BaseUserManager, Group, Permission
+from django.db import models
+from django.utils.translation import gettext_lazy as _
+
 
 class CrearGasto(models.Model):
     # Campo ID autogenerado por Django
@@ -48,16 +51,6 @@ class CrearGasto(models.Model):
     def __str__(self):
         return self.Nombre + ' creado por: ' + self.user.username
     
-    
-    
-
-
-class CustomUserCreationForm(UserCreationForm):
-    email = forms.EmailField()
-
-    class Meta(UserCreationForm.Meta):
-        fields = UserCreationForm.Meta.fields + ('email',)
-
 
 class IngresarIngresos(models.Model):
     Nombre = models.CharField(max_length=50)

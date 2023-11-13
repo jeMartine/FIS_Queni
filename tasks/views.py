@@ -34,33 +34,41 @@ from decimal import Decimal
 from django.http import FileResponse
 from reportlab.pdfgen import canvas
 from django.core.mail import send_mail
-
-
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login, logout
+from django.contrib.auth.decorators import login_required
+from .models import *
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
+from .forms import UserRegisterForm
 
 # Create your views here.
 def home(request):
     return render(request, 'signup.html')
 
 def signup(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+    if request.method== 'POST':
+        form= UserRegisterForm (request.POST)
         if form.is_valid():
-            user = form.save()
-            # Iniciar sesión al usuario
-            login(request, user)
-            return redirect('home')
-        else:
-            return render(request, 'signup.html', {'form': form})
+            form.save()
+            username = form.cleaned_data['username']
+            messages.success(request, f'Usuario {username} creado')
+            return redirect('signin')
     else:
-        form = UserCreationForm()
-    return render(request, 'signup.html', {'form': form})
+        form = UserRegisterForm()
 
+    context = { 'form' : form}
+    return render (request, 'signup.html', context)
 
+    
 
 @login_required 
 def signout(request):
     logout(request)
-    return redirect('home')
+    return redirect('signin')
+
+
 
 
 def signin(request):

@@ -26,7 +26,6 @@
         <div class="form-container">
             {{ error }}
             <form action="{% url 'crearGastos' %}" method="POST" class="form_gasto">
-                {% csrf_token %}
                 {{ form.id }}
                 {% csrf_token %}
                 <table class="tabla_datos">
@@ -42,7 +41,7 @@
                     <tr>
                         <td>
                             {% if user.is_authenticated %}
-                            <p class = "usr_p">{{ user.username }}.</p>
+                            <p class = "usr_p">{{ user.first_name }}.</p>
                             {% else %}
                             <p class = "usr_p">No estás autenticado.</p>
                             {% endif %}

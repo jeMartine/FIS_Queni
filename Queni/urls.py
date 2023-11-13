@@ -2,13 +2,11 @@ from django.contrib import admin
 from django.urls import path
 from tasks import views
 from django.contrib.auth import views as auth_views
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-
 app_name = 'tasks'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.signup, name = 'signup'),
+    path('', views.signin, name = 'signin'),
     path('signup/',views.signup, name = 'signup'),
     path('verGastos/',views.verGastos, name = 'verGastos'),
     path('verGastos/completados/',views.verGastosCompletados, name = 'verGastosCompletados'),
@@ -18,7 +16,7 @@ urlpatterns = [
     path('verIngresos/<int:ingreso_id>/', views.ingresoDetail, name='ingresoDetail'),
     path('verIngresos/<int:ingreso_id>/delete/', views.deleteIngreso, name= 'deleteIngreso'),
     path('logout/', views.signout, name = 'logout'),
-    path('signin/', views.signin,name = 'signin'),
+    path('signin/', views.signin, name = 'signin'),
     path('verGastos/<int:gasto_id>/', views.gastoDetail, name= 'gastoDetail'),
     path('verGastos/<int:gasto_id>/complete/', views.completeGasto, name= 'completeGasto'),
     path('verGastos/<int:gasto_id>/delete/', views.deleteGasto, name= 'deleteGasto'),
@@ -32,6 +30,3 @@ urlpatterns = [
     path('enviar_email/', views.send_email_with_attachment, name='send_email_with_attachment'),
     path('crear_gasto_compartido/<int:grupo_id>/', views.crear_gasto_compartido, name='crear_gasto_compartido'),
 ]
-
-urlpatterns += staticfiles_urlpatterns()
-
