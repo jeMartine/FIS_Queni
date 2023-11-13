@@ -1,27 +1,29 @@
-<!-- {% load static %} -->
+{% load static %}
 {% block content %}
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup</title>
-    <!-- <link rel="stylesheet" type="text/css" href='{% static "css/signin.css" %}'> -->
+    <link rel="stylesheet" type="text/css" href='{% static "css/signup.css" %}'>
 
 </head>
+
 <body>
     <div class="container">
         <div class="form-container">
             {{error}}
             <form action="/signup/" method="POST">
                 {% csrf_token %}
-                <table class = "tbl_form">
+                <table class="tbl_form">
                     <tr>
                         <td>
-                            <!-- <img src='{% static "images/logoMorado.png"%}'> -->
+                            <img src='{% static "images/logoMorado.png"%}'>
                         </td>
                         <td>
-                          <!-- <img src='{% static "images/nombreMorado.png"%}'> -->
+                            <img src='{% static "images/nombreMorado.png"%}'>
                         </td>
                     </tr>
                     <tr>
@@ -52,12 +54,13 @@
                 </table>
 
                 <p>¿Ya tienes cuenta? <a href="/signin">incia sesión</a></p>
-                <button class ="btn_crear" type="submit">Crear Cuenta</button>
-                <button class = "btn_cancelar" type="button" id="cancelar">Cancelar</button>
+                <button class="btn_crear" type="submit">Crear Cuenta</button>
+                <button class="btn_cancelar" type="button" id="cancelar">Cancelar</button>
             </form>
         </div>
     </div>
 </body>
+
 </html>
 
 {% endblock %}
