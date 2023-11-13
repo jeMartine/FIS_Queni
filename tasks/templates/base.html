@@ -1,103 +1,81 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Queni Application</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-        }
-
-        nav {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-        }
-
-        ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        li {
-            margin: 0 15px;
-        }
-
-        a {
-            text-decoration: none;
-            color: #fff;
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-            display: block;
-        }
-
-        a:hover {
-            background-color: #fff;
-            color: #333;
-            border: 1px solid #d38dfc;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href='{% static "css/base.css" %}'>
 </head>
+
 <body>
+
+    <header>
+        <p class = "p_usuario">{{ user.username }}</p>
+        <a class="opcion_logOut" href="/logout">
+            <img class="logOut_img" src='{% static "images/logOut.png"%}'>
+        </a>
+
+    </header>
 
     <nav>
         <ul>
             <li>
-                <a href="/">Home</a>    
+                <div class="div_logo">
+                    <a href="/">
+                        <img class="logo" src='{% static "images/logo_barra.png"%}'>
+                    </a>
+                </div>
             </li>
             {% if user.is_authenticated %}
             <li>
-                <a href="/logout">Logout</a>    
+                <a class="opcion" href="/ingresarIngresos">Ingresar Ingresos</a>
             </li>
             <li>
-                <a href="/ingresarIngresos">Ingresar Ingresos</a>    
+                <a class="opcion" href="/verIngresos">Ver Ingresos</a>
             </li>
             <li>
-                <a href="/verIngresos">Ver Ingresos</a>    
+                <a class="opcion" href="/verGastos/crearGastos/">Crear Gastos</a>
             </li>
             <li>
-                <a href="/verGastos/crearGastos/">Crear Gastos</a>
+                <a class="opcion" href="/verGastos">Gastos Existentes</a>
             </li>
             <li>
-                <a href="/verGastos">Gastos Existentes</a>    
+                <a class="opcion" href="/verGastos/completados/">Gastos Completados</a>
             </li>
             <li>
-                <a href="/verGastos/completados/">Gastos Completados</a>    
+                <a class="opcion" href="{% url 'verBalance' %}">Ver Balance</a>
+            </li>
+
+            <li>
+                <a class="opcion" href="{% url 'estadisticas' %}">Ver Estadísticas</a>
             </li>
             <li>
-                <a href="{% url 'verBalance' %}">Ver Balance</a>
+                <a class="opcion" href="{% url 'lista_grupos' %}">Ver Grupos</a>
             </li>
-            
-            <li>
-                <a href="{% url 'estadisticas' %}">Ver Estadísticas</a>
-            </li>
-            <li>
-                <a href="{% url 'lista_grupos' %}">Ver Grupos</a>
-            </li>
-            
+
             {% else %}
             <li>
-                <a href="/signup">Signup</a>    
+                <a class="opcion" href="/signup">Signup</a>
             </li>
             <li>
-                <a href="/signin">Login</a>    
+                <a class="opcion" href="/signin">Login</a>
             </li>
             {% endif %}
         </ul>
     </nav>
 
-    {% block content %}
-    {% endblock %}
-    
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <img class="logo_footer" src='{% static "images/logoGrisNoFondo.png"%}'>
+        <img class="texto_footer" src='{% static "images/textoGrisNoFondo.png"%}'>
+        <p class="p_slogan">Maneja las finanzas de tu hogar</p>
+    </footer>
 </body>
+
 </html>
