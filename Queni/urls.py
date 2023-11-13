@@ -2,6 +2,9 @@ from django.contrib import admin
 from django.urls import path
 from tasks import views
 from django.contrib.auth import views as auth_views
+from django.conf import settings
+from django.conf.urls.static import static
+
 app_name = 'tasks'
 
 urlpatterns = [
@@ -30,3 +33,6 @@ urlpatterns = [
     path('enviar_email/', views.send_email_with_attachment, name='send_email_with_attachment'),
     path('crear_gasto_compartido/<int:grupo_id>/', views.crear_gasto_compartido, name='crear_gasto_compartido'),
 ]
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
