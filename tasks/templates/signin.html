@@ -14,7 +14,7 @@
     
         <div class="form-container">
             <img src='{% static "images/logoNombre.png"%}'>
-            {{ error }}
+            
             <form action="/signin/" method="POST">
                 {% csrf_token %}
                 {{ form.as_p }}
@@ -22,7 +22,8 @@
 
                 <button class="inicar_sesion" type="submit">Iniciar sesión</button>
                 <button class="btn-cancelar">Cancelar</button>
-                
+                <br><br>
+                {{ error }}
                 <p><a href="/recuperar_clave">Olvidé mi contraseña</a></p>
             </form>
         </div>

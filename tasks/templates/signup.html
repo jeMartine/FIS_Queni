@@ -57,9 +57,21 @@
                 <button class="btn_crear" type="submit">Crear Cuenta</button>
                 <button class="btn_cancelar" type="button" id="cancelar">Cancelar</button>
             </form>
-        </div>
+        </div>       
     </div>
 </body>
+
+<script>
+    document.getElementById('cancelar').addEventListener('click', function () {
+        document.getElementById('username').value = '';
+        document.getElementById('first_name').value = '';
+        document.getElementById('last_name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('password1').value = '';
+        document.getElementById('password2').value = '';
+    });
+
+</script>
 
 </html>
 

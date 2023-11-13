@@ -59,6 +59,7 @@ def signup(request):
         form = UserRegisterForm()
 
     context = { 'form' : form}
+
     return render (request, 'signup.html', context)
 
     
@@ -67,8 +68,6 @@ def signup(request):
 def signout(request):
     logout(request)
     return redirect('signin')
-
-
 
 
 def signin(request):
@@ -379,6 +378,12 @@ def crear_gasto_compartido(request, grupo_id):
         form = GastoCompartidoForm()
     
     return render(request, 'crear_gasto_compartido.html', {'form': form, 'grupo': grupo})
+
+@login_required 
+def verGastos(request):
+    gastos = CrearGasto.objects.filter(user=request.user, datecompleted__isnull=True ) 
+    
+    return render(request, 'verGastos.html',{'Gastos' : gastos})
 
 @login_required
 def ver_grupo(request, grupo_id):
