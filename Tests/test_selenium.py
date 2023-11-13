@@ -6,10 +6,10 @@ driver = webdriver.Chrome()
 
 driver.get("http://localhost:8000/") 
 
-fecha_inicio_input = driver.find_element_by_name("fecha_inicio")
+fecha_inicio_input = driver.find_element("name","fecha_inicio")
 fecha_inicio_input.send_keys("2023-08-01")  
 
-fecha_fin_input = driver.find_element_by_name("fecha_fin")
+fecha_fin_input = driver.find_element("name","fecha_fin")
 fecha_fin_input.send_keys("2023-08-31")
 
 generar_informe_button = driver.find_element_by_css_selector("button[type='submit']")
